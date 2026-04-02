@@ -24,7 +24,8 @@ description: This skill should be used when the user asks to "콘텐츠 만들�
 └── output.mp4
 ```
 
-`SKILL_DIR`은 이 SKILL.md가 위치한 디렉토리의 절대 경로다. 스크립트/참조 파일 경로에만 사용한다.
+`SKILL_DIR`은 이 SKILL.md가 위치한 디렉토리의 절대 경로다. 참조 파일 경로에 사용한다.
+`CLAUDE_PLUGIN_ROOT`는 플러그인 루트 디렉토리의 절대 경로다. 스크립트와 `.env` 경로에 사용한다.
 
 ---
 
@@ -43,7 +44,7 @@ python3 --version
 
 **2. .env 파일 확인:**
 ```bash
-ls "${SKILL_DIR}/.env"
+ls "${CLAUDE_PLUGIN_ROOT}/.env"
 ```
 
 **.env가 없으면 온보딩 시작** — 아래 안내를 사용자에게 보여준다:
@@ -54,7 +55,7 @@ ls "${SKILL_DIR}/.env"
 ━━━ 설정 가이드 (약 3분) ━━━
 
 1. .env 파일 생성:
-   ! cp "${SKILL_DIR}/.env.example" "${SKILL_DIR}/.env"
+   ! cp "${CLAUDE_PLUGIN_ROOT}/.env.example" "${CLAUDE_PLUGIN_ROOT}/.env"
 
 2. 이미지 생성용 API 키 발급 (Google AI Studio):
    → https://aistudio.google.com/apikey
@@ -65,7 +66,7 @@ ls "${SKILL_DIR}/.env"
    → "Create new secret key" → 키 복사
 
 4. .env 파일에 키 입력:
-   ! nano "${SKILL_DIR}/.env"
+   ! nano "${CLAUDE_PLUGIN_ROOT}/.env"
    → NANOBANANA_API_KEY=여기에_구글_키_붙여넣기
    → OPENAI_API_KEY=여기에_오픈AI_키_붙여넣기
 
@@ -159,14 +160,14 @@ ls "${SKILL_DIR}/.env"
 - 배치마다 진행 안내: "이미지 생성 중... (2/4 배치 완료)"
 
 ```bash
-python3 "${SKILL_DIR}/scripts/generate_image.py" \
+python3 "${CLAUDE_PLUGIN_ROOT}/scripts/generate_image.py" \
   --mode generate \
   --prompt "{영문 프롬프트}" \
   --output "{output}/images/card-{NN}.png" \
   --aspect-ratio "3:4" \
   --image-size "2K" \
   --thinking-level "high" \
-  --env-file "${SKILL_DIR}/.env"
+  --env-file "${CLAUDE_PLUGIN_ROOT}/.env"
 ```
 
 **파라미터 유효값 (반드시 이 값만 사용):**
@@ -269,12 +270,12 @@ HTML 요구사항:
 `--section-mode`로 TTS 스크립트를 자동 분리하여 카드별 MP3 + 타이밍 JSON을 한 번에 생성한다.
 
 ```bash
-python3 "${SKILL_DIR}/scripts/tts_openai.py" \
+python3 "${CLAUDE_PLUGIN_ROOT}/scripts/tts_openai.py" \
   --input "{output}/05-tts-script.md" \
   --output "{output}/audio/cards" \
   --voice "shimmer" \
   --section-mode \
-  --env-file "${SKILL_DIR}/.env"
+  --env-file "${CLAUDE_PLUGIN_ROOT}/.env"
 ```
 
 이 명령 하나로:

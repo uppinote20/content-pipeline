@@ -1,0 +1,21 @@
+{
+  "name": "content-pipeline",
+  "version": "1.0.0",
+  "description": "주제 하나로 리서치→카드뉴스→영상까지 자동 생성하는 콘텐츠 파이프라인",
+  "author": {
+    "name": "fivetaku",
+    "url": "https://github.com/fivetaku"
+  },
+  "homepage": "https://github.com/fivetaku/content-pipeline",
+  "repository": "https://github.com/fivetaku/content-pipeline",
+  "license": "MIT",
+  "keywords": [
+    "content-pipeline",
+    "card-news",
+    "video",
+    "research",
+    "remotion",
+    "tts",
+    "automation"
+  ]
+}

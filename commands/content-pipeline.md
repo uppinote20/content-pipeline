@@ -18,7 +18,7 @@ description: "콘텐츠 파이프라인을 실행합니다."
 
 이 커맨드가 호출되면 `skills/content-pipeline/SKILL.md`를 읽고 워크플로우를 따라 실행합니다.
 
-1. Read `skills/content-pipeline/SKILL.md`
+1. Read `${CLAUDE_PLUGIN_ROOT}/skills/content-pipeline/SKILL.md`
 2. 인수가 있으면 해당 주제로 Step 0부터 시작
 3. 인수가 없으면 AskUserQuestion으로 주제를 물어본 뒤 시작
 
