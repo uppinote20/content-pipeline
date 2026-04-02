@@ -1,0 +1,21 @@
+{
+  "name": "content-pipeline",
+  "owner": {
+    "name": "fivetaku",
+    "url": "https://github.com/fivetaku"
+  },
+  "metadata": {
+    "description": "주제 하나로 리서치→카드뉴스→영상까지 자동 생성하는 콘텐츠 파이프라인",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "content-pipeline",
+      "source": "./",
+      "description": "주제 하나로 리서치→카드뉴스→영상까지 자동 생성하는 콘텐츠 파이프라인",
+      "category": "content",
+      "tags": ["content-pipeline", "card-news", "video", "research", "remotion", "tts"]
+    }
+  ],
+  "version": "1.0.0"
+}
